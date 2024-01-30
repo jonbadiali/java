@@ -1467,7 +1467,7 @@ public class GenericKubernetesApi<
   }
 
   private Call tweakCallForCoreV1Group(Call call) {
-    if (!apiGroup.equals("")) {
+    if (!"".equals(apiGroup)) {
       return call;
     }
     HttpUrl url = call.request().url();

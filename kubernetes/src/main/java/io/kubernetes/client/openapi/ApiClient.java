@@ -778,7 +778,7 @@ public class ApiClient {
      */
     public boolean isJsonMime(String mime) {
         String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
-        return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
+        return mime != null && (mime.matches(jsonMime) || "*/*".equals(mime));
     }
 
     /**
@@ -816,7 +816,7 @@ public class ApiClient {
             return null;
         }
 
-        if (contentTypes[0].equals("*/*")) {
+        if ("*/*".equals(contentTypes[0])) {
             return "application/json";
         }
 

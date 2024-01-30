@@ -138,7 +138,7 @@ public class Watch<T> implements Watchable<T>, Closeable {
     // extract object data.
     while (reader.hasNext()) {
       String name = reader.nextName();
-      if (name.equals("object")) {
+      if ("object".equals(name)) {
         found = true;
         break;
       }
@@ -153,9 +153,9 @@ public class Watch<T> implements Watchable<T>, Closeable {
     reader.beginObject();
     while (reader.hasNext()) {
       String name = reader.nextName();
-      if (name.equals("kind")) {
+      if ("kind".equals(name)) {
         kind = reader.nextString();
-      } else if (name.equals("apiVersion")) {
+      } else if ("apiVersion".equals(name)) {
         apiVersion = reader.nextString();
       } else {
         reader.skipValue();

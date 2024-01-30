@@ -52,7 +52,7 @@ public interface Visitor<T>{
   
   default <F>Boolean hasVisitMethodMatching(F target) {
     for (Method method : getClass().getMethods()) {
-          if (!method.getName().equals("visit") || method.getParameterTypes().length != 1) {
+          if (!"visit".equals(method.getName()) || method.getParameterTypes().length != 1) {
             continue;
           }
           Class<?> visitorType = method.getParameterTypes()[0];
