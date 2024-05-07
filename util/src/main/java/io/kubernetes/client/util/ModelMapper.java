@@ -476,7 +476,7 @@ public class ModelMapper {
     String packageName = pkg.replace(".", "/");
     URL packageURL = classLoader.getResource(packageName);
 
-    if (packageURL.getProtocol().equals("jar")) {
+    if ("jar".equals(packageURL.getProtocol())) {
       processJarPackage(packageURL, packageName, pkg, names);
     } else {
       processFilePackage(packageURL, pkg, names);

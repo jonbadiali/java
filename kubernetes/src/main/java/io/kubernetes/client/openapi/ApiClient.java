@@ -816,7 +816,7 @@ public class ApiClient {
             return null;
         }
 
-        if (contentTypes[0].equals("*/*")) {
+        if ("*/*".equals(contentTypes[0])) {
             return "application/json";
         }
 

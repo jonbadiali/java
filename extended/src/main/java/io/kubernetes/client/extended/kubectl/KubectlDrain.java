@@ -73,7 +73,7 @@ public class KubectlDrain extends KubectlCordon {
       // at this point we know, that we have to ignore daemon set pods
       if (pod.getMetadata().getOwnerReferences() != null) {
         for (V1OwnerReference ref : pod.getMetadata().getOwnerReferences()) {
-          if (ref.getKind().equals("DaemonSet")) {
+          if ("DaemonSet".equals(ref.getKind())) {
             continue;
           }
         }
@@ -94,7 +94,7 @@ public class KubectlDrain extends KubectlCordon {
       // Throw exception if there are daemon set pods and ignore daemon set is false
       if (!ignoreDaemonSets) {
         for (V1OwnerReference ref : pod.getMetadata().getOwnerReferences()) {
-          if (ref.getKind().equals("DaemonSet")) {
+          if ("DaemonSet".equals(ref.getKind())) {
             throw new KubectlException("Pod managed by DaemonSet found");
           }
         }
